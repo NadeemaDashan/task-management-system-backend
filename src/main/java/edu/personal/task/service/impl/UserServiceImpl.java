@@ -65,4 +65,18 @@ public class UserServiceImpl implements UserService {
         }
         return list;
     }
+
+    @Override
+    public UserDto editUsers(UserDto userDto) {
+        UserDto user=getUser(userDto.getId());
+        if (userDto.getUserName().isEmpty()||userDto.getPassword().isEmpty()){
+            return new UserDto(0,"invalid","invalid");
+        }else {
+            deleteUser(user);
+            User user1=createUser(userDto);
+            UserDto userDto1=mapper.convertValue(user1, UserDto.class);
+            return userDto1;
+        }
+
+    }
 }

@@ -13,4 +13,6 @@ public interface UserService {
     Boolean deleteUser(UserDto userDto);
 
     ArrayList<UserDto> getUsers();
+
+    UserDto editUsers(UserDto userDto);
 }

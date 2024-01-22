@@ -34,9 +34,9 @@ public class UserController {
     public ArrayList<UserDto> getAllUsers(){
         return userService.getUsers();
     }
-    @PatchMapping("/edit{{id}}")
-    public void editUser(@PathVariable Long id){
-        getUser(id);
+    @PatchMapping("/edit")
+    public void editUser(@RequestBody UserDto userDto){
+        userService.editUsers(userDto);
 
     }
 }
